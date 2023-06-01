@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - FxTemporaire
+  - Bullet
+  - Shield
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Shield
+  - Water
+  - UI
+  - Bullet
+  - Minimap
+  - Boss
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: BackGround
+    uniqueID: 3429045971
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Particle
+    uniqueID: 3095614373
+    locked: 0
+  - name: Enemy_Bullet
+    uniqueID: 3286097487
+    locked: 0
+  - name: Enemy
+    uniqueID: 3083324819
+    locked: 0
+  - name: Boss
+    uniqueID: 1021077187
+    locked: 0
+  - name: PlayerBullet
+    uniqueID: 2356446083
+    locked: 0
+  - name: Player
+    uniqueID: 991697419
+    locked: 0
+  - name: UI
+    uniqueID: 2851682741
+    locked: 0
