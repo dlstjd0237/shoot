@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rlahEl : Pool
+public class Lv1 : Pool
 {
     private void Awake()
     {

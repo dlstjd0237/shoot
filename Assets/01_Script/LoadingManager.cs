@@ -94,7 +94,8 @@ public class LoadingManager : MonoBehaviour
             Color myCOlor = _out.color;
             myCOlor.a -= 0.04f;
             _out.color = myCOlor;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
+            if (myCOlor.a == 0) break;
 
         }
     }

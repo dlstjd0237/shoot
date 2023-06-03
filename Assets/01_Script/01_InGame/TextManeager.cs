@@ -15,6 +15,7 @@ public class TextManeager : MonoBehaviour
     DistanceText _distanceText;
     new AudioSource audio;
     GameObject dkdlt;
+    Enemy_Spawn _enemy_Spawn;
    
 
 
@@ -22,6 +23,7 @@ public class TextManeager : MonoBehaviour
     private void Awake()
     {
         _distanceText = GetComponent<DistanceText>();
+        _enemy_Spawn = FindAnyObjectByType<Enemy_Spawn>();
         audio = GetComponent<AudioSource>();
     }
     void Start()
@@ -87,8 +89,7 @@ public class TextManeager : MonoBehaviour
             StartCoroutine(qw());
             EnemyBox enemyBox = FindAnyObjectByType<EnemyBox>();
             enemyBox.EnemySpown();
-            Enemy_Lv1_Pool enemy_Lv1_Pool = FindAnyObjectByType<Enemy_Lv1_Pool>();
-            enemy_Lv1_Pool.Spawn();
+            _enemy_Spawn.GoSpwan();
 
         }
         else

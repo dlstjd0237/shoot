@@ -12,6 +12,7 @@ public class Start_Button : MonoBehaviour
     Player_Move playermove;
     [SerializeField] Image image;
     DonDes dondes;
+    private bool _startSound;
     private void Awake()
     {
         dondes = FindAnyObjectByType<DonDes>();
@@ -19,12 +20,18 @@ public class Start_Button : MonoBehaviour
         Audio = GetComponent<AudioSource>();
         transformPlayer = GameObject.FindGameObjectWithTag("Player").transform;
         player = GameObject.FindGameObjectWithTag("Player");
+        _startSound = false;
     }
     public void GameStart()
     {
-        playermove.enabled = false;
-        Audio.Play();
-        StartCoroutine(Co());
+        if (_startSound == false)
+        {
+            _startSound = true;
+
+            playermove.enabled = false;
+            Audio.Play();
+            StartCoroutine(Co());
+        }
     }
     IEnumerator Co()
     {
