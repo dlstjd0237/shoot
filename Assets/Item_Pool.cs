@@ -16,6 +16,13 @@ public class Item_Pool : MonoBehaviour
             powerUP.SetActive(false);
         }
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            AddPowerUp(new Vector3(0,0,0));
+        }
+    }
     public void AddPowerUp(Vector3 dir)
     {
         powerUpArr[_count].SetActive(true);

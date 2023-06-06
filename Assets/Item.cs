@@ -25,16 +25,17 @@ public class Item : MonoBehaviour
             {
                 case OnItem.powerUp:
                     Player_Attack player_Atk = FindAnyObjectByType<Player_Attack>();
-                    if (player_Atk._attackLvel >= 4)
-                    {
-                        player_Atk._attackLvelTime = 0;
-                    }
-                    else
-                    {
-                        player_Atk._attackLvelTime = 0;
-                        player_Atk._attackLvel++;
+                    player_Atk.CurrentAttack_bar = 100;
+                    //if (player_Atk._attackLvel >= 4)
+                    //{
+                    //    player_Atk._attackLvelTime = 0;
+                    //}
+                    //else
+                    //{
+                    //    player_Atk._attackLvelTime = 0;
+                    //    player_Atk._attackLvel++;
 
-                    }
+                    //}
                     break;
             }
             gameObject.SetActive(false);

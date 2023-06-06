@@ -5,13 +5,45 @@ using UnityEngine;
 
 public class Player_Attack : Singleton<GameManager>
 {
-    public int _attackLvel = 1;
-    public float _attackLvelTime = 0;
-    [SerializeField] float delayTime = 10;
-    BulletBox bulletBox;
+    [SerializeField]
+    int _attackLvel = 1;
+    [SerializeField]
+    int _attackLvel_bar_max = 1000;
+    [SerializeField]
+    int _currentAttackLvel_bar = 0;
+    //public float _attackLvelTime = 0;
+    //[SerializeField] private float delayTime = 10;
+    private BulletBox bulletBox;
     new AudioSource audio;
     Animator _ani;
     int q;
+    public int Attack_Bar_Max
+    {
+        get => _attackLvel_bar_max;
+        set => _attackLvel_bar_max += Mathf.Max(0, value);
+    }
+    public int CurrentAttack_bar
+    {
+        get => _currentAttackLvel_bar;
+        set
+        {
+            if (value == 0)
+            {
+                _currentAttackLvel_bar = 0;
+            }
+            else
+            {
+
+                _currentAttackLvel_bar += Mathf.Max(0, value);
+            }
+
+        }
+    }
+    public int AttackLvel
+    {
+        get => _attackLvel;
+        set => _attackLvel+=Mathf.Max(0, value);
+    }
     protected override void Awake()
     {
         _ani = GetComponent<Animator>();
@@ -21,17 +53,17 @@ public class Player_Attack : Singleton<GameManager>
     private void Start()
     {
         StartCoroutine(Co());
-           
+
     }
     private void Update()
     {
-        _attackLvelTime += Time.deltaTime;
-        if (_attackLvelTime >= delayTime)
-        {
-            if(_attackLvel>1)
-            _attackLvel--;
-            _attackLvelTime = 0;
-        }
+        //_attackLvelTime += Time.deltaTime;
+        //if (_attackLvelTime >= delayTime)
+        //{
+        //    if (_attackLvel > 1)
+        //        _attackLvel--;
+        //    _attackLvelTime = 0;
+        //}
     }
 
     IEnumerator Co()
@@ -40,7 +72,7 @@ public class Player_Attack : Singleton<GameManager>
         int q = 0;
         while (true)
         {
-            if (Input.GetKey(KeyCode.Space)|| uimaneager.m_isButtonDowning)
+            if (Input.GetKey(KeyCode.Space) || uimaneager.m_isButtonDowning)
             {
                 _ani.SetBool("isAttack", true);
                 audio.Play();
@@ -71,7 +103,7 @@ public class Player_Attack : Singleton<GameManager>
                 bulletBox.Bularr[q].transform.position = new Vector2(transform.position.x + 0.2f, transform.position.y);
                 bulletBox.Bularr[q].GetComponentInChildren<BulletMove>().MoveTo(new Vector3(0, 1, 0));
                 q += 1;
-                if (q > bulletBox.Bularr.Count - 1) q = 0; 
+                if (q > bulletBox.Bularr.Count - 1) q = 0;
                 bulletBox.Bularr[q].SetActive(true);
                 bulletBox.Bularr[q].transform.position = new Vector2(transform.position.x - 0.2f, transform.position.y);
                 bulletBox.Bularr[q].GetComponentInChildren<BulletMove>().MoveTo(new Vector3(0, 1, 0));
@@ -124,6 +156,6 @@ public class Player_Attack : Singleton<GameManager>
                 break;
         }
     }
-   
+
 }
 

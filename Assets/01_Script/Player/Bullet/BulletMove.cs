@@ -6,6 +6,7 @@ using System;
 
 public class BulletMove : MonoBehaviour
 {
+    public Player_Bullet_Data player_bullet_data;
     [SerializeField] float speed = 8f;
     Transform pos;
     [SerializeField]
@@ -14,7 +15,7 @@ public class BulletMove : MonoBehaviour
     {
         Bulletmove();
         MoveTo(moveDir);
-        transform.position += moveDir * speed * Time.deltaTime;
+        transform.position += moveDir * player_bullet_data.Bullet_Speed * Time.deltaTime;
     }
     private void OnDisable()
     {
