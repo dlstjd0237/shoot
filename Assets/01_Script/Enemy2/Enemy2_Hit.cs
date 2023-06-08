@@ -57,6 +57,7 @@ public class Enemy2_Hit : MonoBehaviour
             hit++;
             if (hit >= _enemyLv_data.EnemyHp)
             {
+                _capsuleCollider2D.enabled = false;
                 CameraSh();
 
 
@@ -69,7 +70,6 @@ public class Enemy2_Hit : MonoBehaviour
     private void CameraSh()
     {
 
-        _capsuleCollider2D.enabled = false;
         BoomCFX();
         switch (_enemyType)
         {

@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 3915965196981331711}
   m_Layer: 0
   m_Name: EliteEnemy_Child
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -222,7 +222,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1211642477
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: -1708905109, guid: b8611743ede5cbf40a617074c79f6350, type: 3}
   m_Color: {r: 0, g: 1, b: 0.6241293, a: 1}

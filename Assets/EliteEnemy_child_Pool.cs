@@ -57,8 +57,4 @@ public class EliteEnemy_child_Pool : MonoBehaviour
         b++;
         if (b > _bulletList.Count - 1) b = 0;
     }
-    private void Update()
-    {
-
-    }
 }

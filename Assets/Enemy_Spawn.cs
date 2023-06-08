@@ -12,6 +12,8 @@ public class Enemy_Spawn : MonoBehaviour
     private EnemyBoos_Box _enemy_Lv3_Pool;
     private DangerScreen _dangerscreen;
     private Enemy_Lv4_Pool _enemy_Lv4_Pool;
+    private BossSound _bossSound;
+    private Start_Auido _start_Audio;
     private float _CurrentTime;
     private int Count = 0;
     [SerializeField]
@@ -20,6 +22,8 @@ public class Enemy_Spawn : MonoBehaviour
     {
         _CurrentTime = 0;
         _enemy_Spawn = Start_Spawn();
+        _bossSound = FindAnyObjectByType<BossSound>();
+        _start_Audio = FindAnyObjectByType<Start_Auido>();
         _enemy_Lv1_Pool = FindAnyObjectByType<Enemy_Lv1_Pool>();
         _enemy_Lv2_Pool = FindAnyObjectByType<Enemy2_Box>();
         _enemy_Lv3_Pool = FindAnyObjectByType<EnemyBoos_Box>();
@@ -38,11 +42,14 @@ public class Enemy_Spawn : MonoBehaviour
         _currentTimeText.text = "Ω√∞£" + (int)_CurrentTime;
         if (_rlahWl == true)
             asdf();
-        if (_CurrentTime > 120&& _dangerScreenOn == false)
+        if (_CurrentTime > 200&& _dangerScreenOn == false)
         {
             _dangerScreenOn = true;
             StartCoroutine(Danger());
-           
+            _start_Audio.Stop();
+            _bossSound.StartAudio();
+
+
         }
     }
     void asdf()
@@ -98,6 +105,7 @@ public class Enemy_Spawn : MonoBehaviour
             Lv1(new Vector2(8, 6));
             yield return new WaitForSeconds(_crrentTime);
             Lv1(new Vector2(-6, 6));
+            Lv1(new Vector2(0, 6));
             Lv1(new Vector2(6, 6));
             yield return new WaitForSeconds(_crrentTime);//6√ 
             Lv1(new Vector2(-4, 6));
@@ -109,10 +117,11 @@ public class Enemy_Spawn : MonoBehaviour
             yield return new WaitForSeconds(_crrentTime);
             Lv1(new Vector2(-4, 6));
             Lv1(new Vector2(4, 6));
+            Lv1(new Vector2(0, 6));
             yield return new WaitForSeconds(_crrentTime);
             Lv1(new Vector2(-4, 6));
             Lv1(new Vector2(4, 6));
-            if (_crrentTime <= 1)
+            if (_CurrentTime>=80)
             {
                 AddEliteEnemy();
             }
@@ -122,11 +131,15 @@ public class Enemy_Spawn : MonoBehaviour
             yield return new WaitForSeconds(_crrentTime);
             Lv1(new Vector2(-4, 6));
             Lv1(new Vector2(4, 6));
+            if (_CurrentTime >= 40)
+            {
+                AddEliteEnemy();
+            }
             yield return new WaitForSeconds(_crrentTime);
             Lv1(new Vector2(-2, 6));
             Lv1(new Vector2(2, 6));
             yield return new WaitForSeconds(_crrentTime);
-            if (_crrentTime <= 1)
+            if (_CurrentTime >= 130)
             {
                 AddEliteEnemy();
             }
@@ -135,17 +148,19 @@ public class Enemy_Spawn : MonoBehaviour
             yield return new WaitForSeconds(_crrentTime);
             Lv1(new Vector2(-4, 6));
             Lv1(new Vector2(4, 6));
+            if (_CurrentTime >= 150)
+            {
+                AddEliteEnemy();
+                AddBoss();
+                yield return new WaitForSeconds(_crrentTime);
+            }
             Lv1(new Vector2(-2, 6));
             Lv1(new Vector2(2, 6));
             yield return new WaitForSeconds(_crrentTime);
-            if (_crrentTime <= 1)
+            if (_CurrentTime >= 80)
             {
                 AddEliteEnemy();
                 yield return new WaitForSeconds(_crrentTime);
-            }
-            if (_crrentTime <= 1)
-            {
-                AddEliteEnemy();
             }
             Lv1(new Vector2(-10, 6));
             Lv1(new Vector2(10, 6));
@@ -167,7 +182,7 @@ public class Enemy_Spawn : MonoBehaviour
             yield return new WaitForSeconds(_crrentTime);
             Lv1(new Vector2(-4, 6));
             Lv1(new Vector2(4, 6));
-            if (_crrentTime <= 1)
+            if (_CurrentTime >= 130)
             {
                 AddEliteEnemy();
             }
@@ -181,7 +196,7 @@ public class Enemy_Spawn : MonoBehaviour
             Lv1(new Vector2(-2, 6));
             Lv1(new Vector2(2, 6));
             yield return new WaitForSeconds(_crrentTime);
-            if (_crrentTime <= 1)
+            if (_CurrentTime >= 90)
             {
                 AddEliteEnemy();
             }
@@ -193,7 +208,7 @@ public class Enemy_Spawn : MonoBehaviour
             Lv1(new Vector2(-2, 6));
             Lv1(new Vector2(2, 6));
             yield return new WaitForSeconds(_crrentTime);
-            if (_crrentTime <= 1)
+            if (_CurrentTime >= 130)
             {
                 AddEliteEnemy();
                 AddBoss();

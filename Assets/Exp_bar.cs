@@ -14,7 +14,10 @@ public class Exp_bar : MonoBehaviour
     private bool qwer;
     [SerializeField]
     private TMP_Text _currentExpBar;
+    [SerializeField]
+    private TMP_Text _currentLv;
     Player_Attack player_attack;
+    
 
     private void Awake()
     {
@@ -23,15 +26,22 @@ public class Exp_bar : MonoBehaviour
         _exp_bar = GetComponent<Image>();
     }
     // Update is called once per frame
+    float dkdlt;
     void Update()
     {
         q = player_attack.Attack_Bar_Max;
         w = player_attack.CurrentAttack_bar;
-        _currentExpBar.text = currenLvel * 100 + "%";
+        LvUpText();
         currenLvel = w / q;
+        dkdlt = currenLvel * 100;
+        _currentExpBar.text = (int)dkdlt + "%";
         _exp_bar.DOFillAmount(currenLvel, 0.4f);
         Re_Set();
 
+    }
+    void LvUpText()
+    {
+        _currentLv.text = "Lv." + player_attack.AttackLvel;
     }
     private void Re_Set()
     {
@@ -39,7 +49,7 @@ public class Exp_bar : MonoBehaviour
         {
             player_attack.CurrentAttack_bar = 0;
             player_attack.AttackLvel = 1;
-            player_attack.Attack_Bar_Max = 1000;
+            player_attack.Attack_Bar_Max = 250;
             Debug.Log(player_attack.AttackLvel);
             Debug.Log(player_attack.CurrentAttack_bar);
             Debug.Log(player_attack.Attack_Bar_Max);

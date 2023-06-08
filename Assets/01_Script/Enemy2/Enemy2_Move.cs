@@ -58,7 +58,7 @@ public class Enemy2_Move : Enemy
         yield return new WaitForSeconds(1.3f);
         EnemyBulletBox enemyBullet = FindAnyObjectByType<EnemyBulletBox>();
         if (q > enemyBullet.enemyBulletArr.Count - 1) q = 0;
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 9; i++)
         {
             enemyBullet.enemyBulletArr[q].SetActive(true);
             enemyBullet.enemyBulletArr[q].transform.position = new Vector2(transform.position.x + Random.Range(-0.5f, 0.6f), transform.position.y);

@@ -56,13 +56,7 @@ public class Player_Attack : Singleton<GameManager>
     }
     private void Update()
     {
-        //_attackLvelTime += Time.deltaTime;
-        //if (_attackLvelTime >= delayTime)
-        //{
-        //    if (_attackLvel > 1)
-        //        _attackLvel--;
-        //    _attackLvelTime = 0;
-        //}
+        if (_attackLvel == 8) _currentAttackLvel_bar = 0;
     }
 
     IEnumerator Co()
@@ -194,7 +188,30 @@ public class Player_Attack : Singleton<GameManager>
                 bulletBox.Spwan(new Vector3(transform.position.x - 0.4f, transform.position.y), new Vector3(-0.1f, 1, 0));
                 bulletBox.Spwan(new Vector3(transform.position.x - 0.2f, transform.position.y), new Vector3(-0.1f, 1, 0));
                 break;
-
+            case 7:
+                bulletBox.Spwan(transform.position, new Vector3(0, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x + 0.1f, transform.position.y), new Vector3(0, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x - 0.1f, transform.position.y), new Vector3(0, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x + 0.2f, transform.position.y), new Vector3(0.1f, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x + 0.3f, transform.position.y), new Vector3(0.1f, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x + 0.4f, transform.position.y), new Vector3(0.1f, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x - 0.4f, transform.position.y), new Vector3(-0.1f, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x - 0.3f, transform.position.y), new Vector3(-0.1f, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x - 0.2f, transform.position.y), new Vector3(-0.1f, 1, 0));
+                break;
+            case 8:
+                bulletBox.Spwan(transform.position, new Vector3(0, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x + 0.1f, transform.position.y), new Vector3(0, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x - 0.1f, transform.position.y), new Vector3(0, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x + 0.2f, transform.position.y), new Vector3(0, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x - 0.2f, transform.position.y), new Vector3(0, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x + 0.2f, transform.position.y), new Vector3(0.05f, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x + 0.3f, transform.position.y), new Vector3(0.75f, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x + 0.4f, transform.position.y), new Vector3(0.1f, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x - 0.4f, transform.position.y), new Vector3(-0.1f, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x - 0.3f, transform.position.y), new Vector3(-0.75f, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x - 0.2f, transform.position.y), new Vector3(-0.05f, 1, 0));
+                break;
         }
     }
 

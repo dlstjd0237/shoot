@@ -21,4 +21,9 @@ public class Start_Auido : MonoBehaviour
         }
         yield return null;
     }
+    public void Stop()
+    {
+        audio.Stop();
+    }
+
 }

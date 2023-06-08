@@ -34,4 +34,11 @@ public class Player_Move : MonoBehaviour
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, minPos.x, maxPos.x), Mathf.Clamp(transform.position.y, minPos.y, maxPos.y), 0);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("EnemyBullet") || collision.CompareTag("Enemy"))
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }

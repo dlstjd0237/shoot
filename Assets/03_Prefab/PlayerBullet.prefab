@@ -122,8 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_bullet_data: {fileID: 11400000, guid: e10f285d3e9324740b1cab1ebb0203d7, type: 2}
-  speed: 10
-  moveDir: {x: 0, y: 1, z: 0}
 --- !u!70 &5763023995830336047
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
