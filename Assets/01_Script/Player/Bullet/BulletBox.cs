@@ -6,7 +6,7 @@ public class BulletBox : MonoBehaviour
 {
     public GameObject[] Bul;
     public List<GameObject> Bularr = new List<GameObject>();
-
+    int q = 0;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -16,5 +16,13 @@ public class BulletBox : MonoBehaviour
             Bularr.Add(dkdlt);
             dkdlt.SetActive(false);
         }
+    }
+    public void Spwan(Vector3 spwandir, Vector3 godir)
+    {
+        Bularr[q].SetActive(true);
+        Bularr[q].transform.position = spwandir;
+        Bularr[q].GetComponentInChildren<BulletMove>().MoveTo(godir);
+        q++;
+        if (q > Bularr.Count - 1) q = 0;
     }
 }

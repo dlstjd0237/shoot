@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class Enemy_Lv1_Move : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField]
+    private Enemy_Data _enemy_data;
     private void Update()
     {
-        if(transform.position.y <= -10)
+        transform.position += Vector3.down * _enemy_data.EnemyMoveSpeed * Time.deltaTime;
+        if (transform.position.y <= -10)
         {
             gameObject.SetActive(false);
         }
     }
-    private void FixedUpdate()
-    {
-        transform.position += Vector3.down * _speed * Time.deltaTime;
-    }
    
-    
 }

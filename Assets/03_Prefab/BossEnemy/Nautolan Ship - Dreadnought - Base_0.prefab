@@ -136,9 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81eb9b6d56b4a7342b5bab1228ee2558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyLv_data: {fileID: 11400000, guid: 2ec4ea9976c8bbf4abc185acc38e8f6c, type: 2}
   _enemyType: 3
   _percent: 100
-  _hitCount: 300
   _addScore: 150000
 --- !u!114 &41244174346179134
 MonoBehaviour:
@@ -152,4 +152,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93181b15d26c4f54fb92e43b7d8d50e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1

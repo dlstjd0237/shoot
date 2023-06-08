@@ -212,9 +212,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81eb9b6d56b4a7342b5bab1228ee2558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyLv_data: {fileID: 11400000, guid: d1420221f7c11484781457560445ab27, type: 2}
   _enemyType: 2
   _percent: 70
-  _hitCount: 50
   _addScore: 10000
 --- !u!95 &7373712255323782080
 Animator:

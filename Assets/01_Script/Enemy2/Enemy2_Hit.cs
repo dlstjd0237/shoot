@@ -7,11 +7,15 @@ public enum EnemyType : short
 {
     Lv1 = 1,
     Lv2 = 2,
-    Lv3 = 3
+    Lv3 = 3,
+    Lv4 = 4
 }
 public class Enemy2_Hit : MonoBehaviour
 {
-    [SerializeField] EnemyType _enemyType;
+    [SerializeField]
+    private Enemy_Data _enemyLv_data;
+    [SerializeField]
+    private EnemyType _enemyType;
     Enemy_Lv1_Particle_Pool _enemyLv1Pool;
     DistanceText distancetext;
     SpriteRenderer t;
@@ -22,9 +26,6 @@ public class Enemy2_Hit : MonoBehaviour
     int e = 0;
     [SerializeField] int _percent;
     Animator ani;
-
-
-    [SerializeField] int _hitCount;
     [SerializeField] float _addScore;
     private void Awake()
     {
@@ -54,11 +55,11 @@ public class Enemy2_Hit : MonoBehaviour
                 w = 0;
             }
             hit++;
-            if (hit >= _hitCount)
+            if (hit >= _enemyLv_data.EnemyHp)
             {
                 CameraSh();
 
-               
+
             }
             else
                 Co();
@@ -67,8 +68,9 @@ public class Enemy2_Hit : MonoBehaviour
 
     private void CameraSh()
     {
-        
+
         _capsuleCollider2D.enabled = false;
+        BoomCFX();
         switch (_enemyType)
         {
             case EnemyType.Lv1:
@@ -79,16 +81,17 @@ public class Enemy2_Hit : MonoBehaviour
             case EnemyType.Lv3:
                 Cam.dkdlt(7, 1.4f);
                 ani.SetTrigger("isDie"); break;
-
+            case EnemyType.Lv4:
+                Cam.dkdlt(4, 1.3f);
+                ani.SetTrigger("isDie"); break;
         }
-      
+
     }
 
     Sequence dk;
 
     public void Die()
     {
-        BoomCFX();
         dk.Kill();
         Additem();
         gameObject.SetActive(false);
@@ -104,6 +107,7 @@ public class Enemy2_Hit : MonoBehaviour
                 break;
             case EnemyType.Lv2:
             case EnemyType.Lv3:
+            case EnemyType.Lv4:
                 Enemy2_CFX_Boom_Box EnemyBoom = FindAnyObjectByType<Enemy2_CFX_Boom_Box>();
                 EnemyBoom._enemy_BoomArr[e].SetActive(true);
                 EnemyBoom._enemy_BoomArr[e].transform.position = transform.position;
@@ -138,7 +142,7 @@ public class Enemy2_Hit : MonoBehaviour
             Item_Pool item_pool = FindAnyObjectByType<Item_Pool>();
             item_pool.AddPowerUp(transform.position);
         }
-        
+
     }
 
 }

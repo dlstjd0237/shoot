@@ -7,8 +7,7 @@ public class Player_Attack : Singleton<GameManager>
 {
     [SerializeField]
     int _attackLvel = 1;
-    [SerializeField]
-    int _attackLvel_bar_max = 1000;
+    int _attackLvel_bar_max = 500;
     [SerializeField]
     int _currentAttackLvel_bar = 0;
     //public float _attackLvelTime = 0;
@@ -154,6 +153,48 @@ public class Player_Attack : Singleton<GameManager>
                 q += 1;
                 if (q > bulletBox.Bularr.Count - 1) q = 0;
                 break;
+            case 5:
+                bulletBox.Bularr[q].SetActive(true);
+                bulletBox.Bularr[q].transform.position = new Vector2(transform.position.x+0.1f,transform.position.y);
+                bulletBox.Bularr[q].GetComponentInChildren<BulletMove>().MoveTo(new Vector3(0, 1, 0));
+                q += 1;
+                if (q > bulletBox.Bularr.Count - 1) q = 0;
+                bulletBox.Bularr[q].SetActive(true);
+                bulletBox.Bularr[q].transform.position = new Vector2(transform.position.x - 0.1f, transform.position.y);
+                bulletBox.Bularr[q].GetComponentInChildren<BulletMove>().MoveTo(new Vector3(0, 1, 0));
+                q += 1;
+                if (q > bulletBox.Bularr.Count - 1) q = 0;
+                bulletBox.Bularr[q].SetActive(true);
+                bulletBox.Bularr[q].transform.position = new Vector2(transform.position.x - 0.2f, transform.position.y);
+                bulletBox.Bularr[q].GetComponentInChildren<BulletMove>().MoveTo(new Vector3(-0.1f, 1, 0));
+                q += 1;
+                if (q > bulletBox.Bularr.Count - 1) q = 0;
+                bulletBox.Bularr[q].SetActive(true);
+                bulletBox.Bularr[q].transform.position = new Vector2(transform.position.x - 0.4f, transform.position.y);
+                bulletBox.Bularr[q].GetComponentInChildren<BulletMove>().MoveTo(new Vector3(-0.1f, 1, 0));
+                q += 1;
+                if (q > bulletBox.Bularr.Count - 1) q = 0;
+                bulletBox.Bularr[q].SetActive(true);
+                bulletBox.Bularr[q].transform.position = new Vector2(transform.position.x + 0.2f, transform.position.y);
+                bulletBox.Bularr[q].GetComponentInChildren<BulletMove>().MoveTo(new Vector3(0.1f, 1, 0));
+                q += 1;
+                if (q > bulletBox.Bularr.Count - 1) q = 0;
+                bulletBox.Bularr[q].SetActive(true);
+                bulletBox.Bularr[q].transform.position = new Vector2(transform.position.x + 0.4f, transform.position.y);
+                bulletBox.Bularr[q].GetComponentInChildren<BulletMove>().MoveTo(new Vector3(0.1f, 1, 0));
+                q += 1;
+                if (q > bulletBox.Bularr.Count - 1) q = 0;
+                break;
+            case 6:
+                bulletBox.Spwan(transform.position, new Vector3(0, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x+0.1f,transform.position.y), new Vector3(0, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x-0.1f,transform.position.y), new Vector3(0, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x + 0.2f, transform.position.y), new Vector3(0.1f, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x + 0.4f, transform.position.y), new Vector3(0.1f, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x - 0.4f, transform.position.y), new Vector3(-0.1f, 1, 0));
+                bulletBox.Spwan(new Vector3(transform.position.x - 0.2f, transform.position.y), new Vector3(-0.1f, 1, 0));
+                break;
+
         }
     }
 

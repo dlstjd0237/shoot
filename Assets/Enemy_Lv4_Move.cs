@@ -5,11 +5,11 @@ using DG.Tweening;
 
 public class Enemy_Lv4_Move : MonoBehaviour
 {
-    private Sequence q;
     private Animator _ani;
     private Transform _player;
-    
-    [SerializeField] private float _moveSpeed;
+    [SerializeField]
+    private Enemy_Data _enemy_data;
+    private bool dkdlt = false;
     private void Awake()
     {
         _ani = GetComponent<Animator>();
@@ -18,18 +18,16 @@ public class Enemy_Lv4_Move : MonoBehaviour
 
     private void Update()
     {
-        Move();
-        Attack();
+        if (dkdlt == false)
+        {
+
+            Move();
+        }
+        if (transform.position.y <= 4.5f) dkdlt = true;
     }
 
     private void Move()
     {
-        q = DOTween.Sequence();
-        q.Append(transform.DOMoveY(3, 4, false));       
-    }
-
-    private void Attack()
-    {
-
+        transform.position += Vector3.down * _enemy_data.EnemyMoveSpeed * Time.deltaTime;
     }
 }

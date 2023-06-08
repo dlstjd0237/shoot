@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3166e851f65e6894396077cf859f0d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _enemy_data: {fileID: 11400000, guid: 8e69504ae6caf794ea2a57ae22984a5d, type: 2}
 --- !u!95 &3846887820743199857
 Animator:
   serializedVersion: 5
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81eb9b6d56b4a7342b5bab1228ee2558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyLv_data: {fileID: 11400000, guid: 8e69504ae6caf794ea2a57ae22984a5d, type: 2}
   _enemyType: 1
   _percent: 15
-  _hitCount: 3
   _addScore: 1000

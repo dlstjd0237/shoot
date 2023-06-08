@@ -20,20 +20,20 @@ public class Enemy2_Move : Enemy
     }
     private void OnDisable()
     {
-        seq.Kill();
+        if (seq != null && seq.IsActive()) seq.Kill();
 
     }
     void Co()
     {
         if(seq !=null&&seq.IsActive()) seq.Kill();
-        seq = DOTween.Sequence();
+        seq = DOTween.Sequence().SetAutoKill(false);
 
         seq.Append(audio.DOFade(0,1));
         seq.Join(transform.DOMoveX(player.position.x, 1f));
         //audio.Play();
         seq.Append(audio.DOFade(0, 1));
 
-        seq.Join(transform.DOMoveY(transform.position.y - 3, 1));
+        seq.Join(transform.DOMoveY(transform.position.y - 1, 1));
         //audio.Play();
         StartCoroutine("En");
         seq.Append(audio.DOFade(0, 1));
@@ -58,7 +58,7 @@ public class Enemy2_Move : Enemy
         yield return new WaitForSeconds(1.3f);
         EnemyBulletBox enemyBullet = FindAnyObjectByType<EnemyBulletBox>();
         if (q > enemyBullet.enemyBulletArr.Count - 1) q = 0;
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 7; i++)
         {
             enemyBullet.enemyBulletArr[q].SetActive(true);
             enemyBullet.enemyBulletArr[q].transform.position = new Vector2(transform.position.x + Random.Range(-0.5f, 0.6f), transform.position.y);

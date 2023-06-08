@@ -7,9 +7,6 @@ using System;
 public class BulletMove : MonoBehaviour
 {
     public Player_Bullet_Data player_bullet_data;
-    [SerializeField] float speed = 8f;
-    Transform pos;
-    [SerializeField]
     Vector3 moveDir = Vector3.zero;
     void Update()
     {

@@ -5,12 +5,11 @@ using DG.Tweening;
 
 public class EnemyBoos_Move : MonoBehaviour
 {
-    [SerializeField] float _speed = 1;
     EliteEnemy_child_Pool eliteenemy_child_pool;
     private void Start()
     {
         eliteenemy_child_pool = FindAnyObjectByType<EliteEnemy_child_Pool>();
-        StartCoroutine(Co());
+        Co();
     }
     private void Update()
     {
@@ -25,25 +24,32 @@ public class EnemyBoos_Move : MonoBehaviour
     }
 
     Sequence a ;
-    IEnumerator Co()
+
+    private void Co()
     {
-        a = DOTween.Sequence();
-        a.Append(transform.DOMove(new Vector2(0, 5), 11));
-        yield return new WaitForSeconds(4);
-        StartCoroutine(qwer());
-        yield return new WaitForSeconds(3);
-        StartCoroutine(qwer());
-        yield return new WaitForSeconds(3);
-        StartCoroutine(qwer());
-        yield return new WaitForSeconds(3);
-        StartCoroutine(qwer());
-        yield return new WaitForSeconds(3);
-        StartCoroutine(qwer());
+        a = DOTween.Sequence().SetAutoKill(false);
+
+        a.Append(transform.DOMove(new Vector2(-4, 6), 5,false));
+        a.AppendInterval(2);
+        a.AppendCallback(() => asdf());
+        a.AppendInterval(3);
+        a.Append(transform.DOMove(new Vector2(0, 6), 5, false));
+        a.AppendCallback(() => asdf());
+        a.AppendInterval(3);
+        a.AppendCallback(() => asdf());
+        a.AppendInterval(3);
+        a.AppendCallback(() => asdf());
+        a.AppendInterval(3);
+        a.AppendCallback(() => asdf());
         a.Append(transform.DOMove(new Vector2(19, 5),11));
-        yield return new WaitForSeconds(15);
+        a.AppendInterval(15);
         a.AppendCallback(() => a.Kill());
     }
-
+    void asdf()
+    {
+        if(gameObject.activeSelf)
+        StartCoroutine(qwer());
+    }
     IEnumerator qwer()
     {
         for (int i = 0; i < 5; i++)

@@ -22,7 +22,7 @@ public class EnemyBoos_Box : MonoBehaviour
     {
 
         _enemyBossArr[q].SetActive(true);
-        _enemyBossArr[q].transform.position = new Vector2(-19, 7);
+        _enemyBossArr[q].transform.position = new Vector2(-19, 9);
         _enemyBossArr[q].transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
 
         q++;

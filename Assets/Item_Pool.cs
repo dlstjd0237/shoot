@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item_Pool : MonoBehaviour
 {
     [SerializeField] GameObject[] _powerItem;
-    public int _count =0;
+    public int _count = 0;
     public List<GameObject> powerUpArr = new List<GameObject>();
     private void Awake()
     {
@@ -14,13 +14,6 @@ public class Item_Pool : MonoBehaviour
             GameObject powerUP = Instantiate(_powerItem[Random.Range(0, _powerItem.Length)], transform);
             powerUpArr.Add(powerUP);
             powerUP.SetActive(false);
-        }
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            AddPowerUp(new Vector3(0,0,0));
         }
     }
     public void AddPowerUp(Vector3 dir)

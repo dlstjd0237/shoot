@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using TMPro;
 
 public class Exp_bar : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class Exp_bar : MonoBehaviour
     private float w;
     private float currenLvel;
     private bool qwer;
-
+    [SerializeField]
+    private TMP_Text _currentExpBar;
     Player_Attack player_attack;
 
     private void Awake()
@@ -25,7 +27,7 @@ public class Exp_bar : MonoBehaviour
     {
         q = player_attack.Attack_Bar_Max;
         w = player_attack.CurrentAttack_bar;
-
+        _currentExpBar.text = currenLvel * 100 + "%";
         currenLvel = w / q;
         _exp_bar.DOFillAmount(currenLvel, 0.4f);
         Re_Set();
@@ -33,7 +35,7 @@ public class Exp_bar : MonoBehaviour
     }
     private void Re_Set()
     {
-        if (currenLvel == 1)
+        if (currenLvel >= 0.99999f)
         {
             player_attack.CurrentAttack_bar = 0;
             player_attack.AttackLvel = 1;

@@ -1,29 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Enemy_Spawn : MonoBehaviour
 {
+    [SerializeField] private TMP_Text _currentTimeText;
     private IEnumerator _enemy_Spawn;
     private Enemy_Lv1_Pool _enemy_Lv1_Pool;
     private Enemy2_Box _enemy_Lv2_Pool;
     private EnemyBoos_Box _enemy_Lv3_Pool;
+    private DangerScreen _dangerscreen;
+    private Enemy_Lv4_Pool _enemy_Lv4_Pool;
+    private float _CurrentTime;
     private int Count = 0;
     [SerializeField]
     private float _crrentTime = 1.6f;
     private void Awake()
     {
+        _CurrentTime = 0;
         _enemy_Spawn = Start_Spawn();
         _enemy_Lv1_Pool = FindAnyObjectByType<Enemy_Lv1_Pool>();
         _enemy_Lv2_Pool = FindAnyObjectByType<Enemy2_Box>();
         _enemy_Lv3_Pool = FindAnyObjectByType<EnemyBoos_Box>();
-
+        _dangerscreen = FindAnyObjectByType<DangerScreen>();
+        _enemy_Lv4_Pool = FindAnyObjectByType<Enemy_Lv4_Pool>();
     }
     public void GoSpwan()
     {
         StartCoroutine(_enemy_Spawn);
+        StartCoroutine(qwer());
     }
-
+    private bool _dangerScreenOn = false;
+    private bool _rlahWl = false;
+    private void Update()
+    {
+        _currentTimeText.text = "½Ã°£" + (int)_CurrentTime;
+        if (_rlahWl == true)
+            asdf();
+        if (_CurrentTime > 120&& _dangerScreenOn == false)
+        {
+            _dangerScreenOn = true;
+            StartCoroutine(Danger());
+           
+        }
+    }
+    void asdf()
+    {
+        _CurrentTime += Time.deltaTime;
+    }
     public void Lv1(Vector2 dir)
     {
         for (int i = 0; i < 3; i++)
@@ -47,8 +72,24 @@ public class Enemy_Spawn : MonoBehaviour
     {
         _enemy_Lv3_Pool.EnemyBossAdd();
     }
+    IEnumerator qwer()
+    {
+        while (true)
+        {
+            _CurrentTime += Time.deltaTime;
+            yield return new WaitForSeconds(1);
+        }
+    }
+    IEnumerator Danger()
+    {
+        _dangerscreen.OpenLoadScreen();
+        yield return new WaitForSeconds(2);
+        _dangerscreen.OffScreen();
+        _enemy_Lv4_Pool.AddLv4(new Vector3(1.23f, 10));
+    }
     IEnumerator Start_Spawn()
     {
+        _rlahWl = true;
         while (true)
         {
             Lv1(new Vector2(-10, 6));
@@ -105,7 +146,6 @@ public class Enemy_Spawn : MonoBehaviour
             if (_crrentTime <= 1)
             {
                 AddEliteEnemy();
-                AddBoss();
             }
             Lv1(new Vector2(-10, 6));
             Lv1(new Vector2(10, 6));
@@ -156,13 +196,9 @@ public class Enemy_Spawn : MonoBehaviour
             if (_crrentTime <= 1)
             {
                 AddEliteEnemy();
-                yield return new WaitForSeconds(_crrentTime);
-            }
-            if (_crrentTime <= 1)
-            {
-                AddEliteEnemy();
                 AddBoss();
             }
+            yield return new WaitForSeconds(_crrentTime);
             if (_crrentTime > 0.4f)
                 _crrentTime -= 0.2f;
         }

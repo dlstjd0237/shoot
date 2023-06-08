@@ -19,7 +19,7 @@ public class Enemy2_Box : MonoBehaviour
     public void EliteEnemy()
     {
         Enemy2List[q].SetActive(true);
-        Enemy2List[q].transform.position = new Vector2(Random.Range(-9, 10), 5.7f);
+        Enemy2List[q].transform.position = new Vector2(Random.Range(-9, 11.5f), 5.7f);
         q++;
         if (q >Enemy2List.Count-1)
         {
