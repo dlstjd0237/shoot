@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Lv3
   m_EditorClassIdentifier: 
   _enemyMoveSpeed: 1
-  _enemyHp: 350
+  _enemyHp: 700
+  _enemyBulletSpeed: 0

@@ -6,8 +6,8 @@ public class Enemy2_Move : Enemy
 {
     Transform player;
     new AudioSource audio;
-    int q = 0;
     Sequence seq;
+    Vector2 qwer;
     private void Awake()
     {
 
@@ -47,6 +47,7 @@ public class Enemy2_Move : Enemy
     }
     private void FixedUpdate()
     {
+        qwer = transform.position;
         transform.position += Vector3.down * 0.5f * Time.deltaTime;
         if (transform.position.y < -7)
         {
@@ -57,12 +58,9 @@ public class Enemy2_Move : Enemy
     {
         yield return new WaitForSeconds(1.3f);
         EnemyBulletBox enemyBullet = FindAnyObjectByType<EnemyBulletBox>();
-        if (q > enemyBullet.enemyBulletArr.Count - 1) q = 0;
         for (int i = 0; i < 9; i++)
         {
-            enemyBullet.enemyBulletArr[q].SetActive(true);
-            enemyBullet.enemyBulletArr[q].transform.position = new Vector2(transform.position.x + Random.Range(-0.5f, 0.6f), transform.position.y);
-            q += 1;
+            enemyBullet.AddBullet(qwer);
             yield return new WaitForSeconds(0.05f);
 
         }

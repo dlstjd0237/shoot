@@ -7,7 +7,6 @@ public class Enemy_Lv4_Bullet : MonoBehaviour
     private Vector3 _movedir = Vector3.zero;
     [SerializeField]
     private Enemy_Data _enemy_Data;
-
     Animator Ani;
     private void Awake()
     {

@@ -10,7 +10,7 @@ public class BulletBox : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        for (int i = 0; i < 300; i++)
+        for (int i = 0; i < 500; i++)
         {
             GameObject dkdlt = Instantiate(Bul[Random.Range(0, Bul.Length)], transform);
             Bularr.Add(dkdlt);
@@ -22,7 +22,14 @@ public class BulletBox : MonoBehaviour
         Bularr[q].SetActive(true);
         Bularr[q].transform.position = spwandir;
         Bularr[q].GetComponentInChildren<BulletMove>().MoveTo(godir);
+        StartCoroutine(Co(q));
         q++;
         if (q > Bularr.Count - 1) q = 0;
+        
+    }
+    IEnumerator Co(int w)
+    {
+        yield return new WaitForSeconds(3);
+        Bularr[w].SetActive(false);
     }
 }

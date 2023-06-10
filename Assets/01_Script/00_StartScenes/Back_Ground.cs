@@ -11,7 +11,7 @@ public class Back_Ground : Singleton<GameManager>
         {
             transform.position = new Vector2(0, 30);
         }
-        transform.position += Vector3.down * GameManager.instance.backGrundSpeed * Time.deltaTime;
+        transform.position += Vector3.down * 2 * Time.deltaTime;
         
     }
 

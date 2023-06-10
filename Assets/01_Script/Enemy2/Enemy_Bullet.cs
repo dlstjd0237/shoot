@@ -21,13 +21,8 @@ public class Enemy_Bullet : MonoBehaviour
     }
     private void OnEnable()
     {
-        if (Random.Range(0, 101) <= 70)
-        {
-
-            q = DOTween.Sequence();
-            q.Append(transform.DOMove(player.position, 3).SetEase(Ease.InQuart));
-        }
-
+        q = DOTween.Sequence();
+        q.Append(transform.DOMove(player.position, 3).SetEase(Ease.InQuart));
     }
     void Update()
     {
@@ -35,6 +30,7 @@ public class Enemy_Bullet : MonoBehaviour
     }
     void BulletMove()
     {
+
         transform.position += Vector3.down * speed * Time.deltaTime;
         if (transform.position.y < -6)
         {

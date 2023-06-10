@@ -16,7 +16,7 @@ public class Enemy_Lv4_Attack : MonoBehaviour
     IEnumerator Co()
     {
         a(transform.position, new Vector3(0, -1, 0));
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         StartCoroutine(Co());
     }
     void a (Vector3 dir1,Vector3 dir2)

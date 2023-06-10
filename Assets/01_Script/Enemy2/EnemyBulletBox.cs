@@ -8,7 +8,7 @@ public class EnemyBulletBox : MonoBehaviour
     
     public List<GameObject> enemyBulletArr = new List<GameObject>();
 
-
+    int q = 0;
     private void Awake()
     {
        
@@ -18,6 +18,13 @@ public class EnemyBulletBox : MonoBehaviour
             enemyBulletArr.Add(EnBul);
             EnBul.SetActive(false);
         }
+    }
+    public void AddBullet(Vector2 dir)
+    {
+        enemyBulletArr[q].SetActive(true);
+        enemyBulletArr[q].transform.position = dir;
+        q++;
+        if (q > enemyBulletArr.Count - 1) q = 0;
     }
   
 }

@@ -7,7 +7,7 @@ public class PlayerStart : MonoBehaviour
     AudioSource audioSource;
     private void Awake()
     {
-        DOTween.SetTweensCapacity(3000,3000);
+        DOTween.SetTweensCapacity(5000,5000);
         audioSource = GetComponent<AudioSource>();
     }
 

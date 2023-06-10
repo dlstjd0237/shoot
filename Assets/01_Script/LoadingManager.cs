@@ -62,12 +62,11 @@ public class LoadingManager : MonoBehaviour
         while (!op.isDone)
         {
             yield return null;
-            timer += Time.deltaTime * 0.1f;
+            timer += Time.deltaTime * 0.15f;
 
             progressBar.fillAmount = Mathf.Lerp(0, 1, timer);
             if (progressBar.fillAmount >= 1f)
             {
-                DonDes dondes = FindAnyObjectByType<DonDes>();
                 while (true)
                 {
 
