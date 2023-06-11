@@ -16,6 +16,7 @@ public class Player_Attack : Singleton<GameManager>
     //[SerializeField] private float delayTime = 10;
     private BulletBox bulletBox;
     private Player_Lv6_Bullet_Pool bulletBox2;
+    private Player_Move _playerMove;
     new AudioSource audio;
     Animator _ani;
     int q;
@@ -48,6 +49,7 @@ public class Player_Attack : Singleton<GameManager>
     }
     protected override void Awake()
     {
+        _playerMove = FindAnyObjectByType<Player_Move>();
         _ani = GetComponent<Animator>();
         audio = GetComponent<AudioSource>();
         bulletBox2 = FindAnyObjectByType<Player_Lv6_Bullet_Pool>();
@@ -70,7 +72,7 @@ public class Player_Attack : Singleton<GameManager>
         int q = 0;
         while (true)
         {
-            if (Input.GetKey(KeyCode.Space) || uimaneager.m_isButtonDowning)
+            if (Input.GetKey(KeyCode.Space) || uimaneager.m_isButtonDowning&& _playerMove.die==false)
             {
                 _ani.SetBool("isAttack", true);
                 audio.Play();
@@ -126,6 +128,7 @@ public class Player_Attack : Singleton<GameManager>
                 if (q > bulletBox.Bularr.Count - 1) q = 0;
                 break;
             case 4:
+                StartCoroutine(fountain());
                 bulletBox.Bularr[q].SetActive(true);
                 bulletBox.Bularr[q].transform.position = transform.position;
                 bulletBox.Bularr[q].GetComponentInChildren<BulletMove>().MoveTo(new Vector3(0, 1, 0));
@@ -196,6 +199,7 @@ public class Player_Attack : Singleton<GameManager>
                     StartCoroutine(fountain());
                 break;
             case 7:
+
                 bulletBox.Spwan(transform.position, new Vector3(0, 1, 0));
                 bulletBox.Spwan(new Vector3(transform.position.x + 0.1f, transform.position.y), new Vector3(0, 1, 0));
                 bulletBox.Spwan(new Vector3(transform.position.x - 0.1f, transform.position.y), new Vector3(0, 1, 0));
@@ -205,7 +209,7 @@ public class Player_Attack : Singleton<GameManager>
                 bulletBox.Spwan(new Vector3(transform.position.x - 0.4f, transform.position.y), new Vector3(-0.1f, 1, 0));
                 bulletBox.Spwan(new Vector3(transform.position.x - 0.3f, transform.position.y), new Vector3(-0.1f, 1, 0));
                 bulletBox.Spwan(new Vector3(transform.position.x - 0.2f, transform.position.y), new Vector3(-0.1f, 1, 0));
-
+                StartCoroutine(fountain2());
                 break;
             case 8:
                 bulletBox.Spwan(transform.position, new Vector3(0, 1, 0));

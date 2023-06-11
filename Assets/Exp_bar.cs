@@ -50,9 +50,6 @@ public class Exp_bar : MonoBehaviour
             player_attack.CurrentAttack_bar = 0;
             player_attack.AttackLvel = 1;
             player_attack.Attack_Bar_Max = 250;
-            Debug.Log(player_attack.AttackLvel);
-            Debug.Log(player_attack.CurrentAttack_bar);
-            Debug.Log(player_attack.Attack_Bar_Max);
         }
     }
 }

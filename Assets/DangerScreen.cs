@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
 
 public class DangerScreen : MonoBehaviour
 {
@@ -18,17 +19,7 @@ public class DangerScreen : MonoBehaviour
         _rectTrm.sizeDelta = _screenSize;
         _rectTrm.anchoredPosition = new Vector2(0, Screen.height);
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            OpenLoadScreen();
-        }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            OffScreen();
-        }
-    }
+ 
     public void OpenLoadScreen()
     {
         Sequence seq = DOTween.Sequence();

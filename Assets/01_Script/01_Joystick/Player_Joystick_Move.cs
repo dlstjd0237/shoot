@@ -5,9 +5,15 @@ using UnityEngine;
 public class Player_Joystick_Move : MonoBehaviour
 {
     public JoystickValue value;
-    [SerializeField]float Player_Speed= 10.0f;
+    [SerializeField] float Player_Speed = 10.0f;
+    private Player_Move _playerMove;
+    private void Awake()
+    {
+        _playerMove = FindAnyObjectByType<Player_Move>();
+    }
     private void Update()
     {
-        transform.Translate(value.joyTouch/ Player_Speed );
+        if (_playerMove.die == false)
+            transform.Translate(value.joyTouch / Player_Speed);
     }
 }

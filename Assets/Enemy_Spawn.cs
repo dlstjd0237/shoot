@@ -42,7 +42,7 @@ public class Enemy_Spawn : MonoBehaviour
         _currentTimeText.text = "½Ã°£" + (int)_CurrentTime;
         if (_rlahWl == true)
             asdf();
-        if (_CurrentTime > 200&& _dangerScreenOn == false)
+        if (_CurrentTime > 160&& _dangerScreenOn == false)
         {
             _dangerScreenOn = true;
             StartCoroutine(Danger());

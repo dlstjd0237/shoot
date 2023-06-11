@@ -72,7 +72,7 @@ public class LoadingManager : MonoBehaviour
 
                     audio.volume -= 0.002f;
                     Color myCOlor = _inGame.color;
-                    myCOlor.a += 0.05f;
+                    myCOlor.a += 0.02f;
                     _inGame.color = myCOlor;
                     yield return new WaitForSeconds(0.01f);
                     if (audio.volume <= 0.01f)
