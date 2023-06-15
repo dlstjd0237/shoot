@@ -3567,12 +3567,12 @@ GameObject:
   - component: {fileID: 1049676408}
   - component: {fileID: 1049676407}
   - component: {fileID: 1049676405}
-  - component: {fileID: 1049676404}
   - component: {fileID: 1049676409}
   - component: {fileID: 1049676410}
   - component: {fileID: 1049676411}
   - component: {fileID: 1049676412}
   - component: {fileID: 1049676413}
+  - component: {fileID: 1049676414}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3580,22 +3580,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &1049676404
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1049676403}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.015248001, y: -0.00000011920929}
-  serializedVersion: 2
-  m_Radius: 0.58706874
 --- !u!50 &1049676405
 Rigidbody2D:
   serializedVersion: 4
@@ -3846,6 +3830,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: {fileID: 11400000, guid: b0d17dba1def98745ac8e06d501c7fb4, type: 2}
   Player_Speed: 4
+--- !u!70 &1049676414
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049676403}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.8999999, y: 1.0999999}
+  m_Direction: 0
 --- !u!1 &1055961117
 GameObject:
   m_ObjectHideFlags: 0
@@ -4389,11 +4389,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1964181527}
   comamt1:
-  - "\uD55C\uBC88\uC774\uB77C\uB3C4 \uC801\uC758 \uACF5\uACA9\uC758 \uB9DE\uC73C\uBA74 "
-  - "\uD50C\uB808\uC774\uC5B4\uC758 \uAE30\uCCB4\uAC00 \uD30C\uAD34\uB418\uB2C8 \uC8FC\uC758
-    \uD558\uC2ED\uC2DC\uC624"
-  - "\uCD5C\uB300\uD55C \uB9CE\uC740 \uC801\uC744 \uCC98\uCE58 \uD558\uC5EC \uB9CE\uC740
-    \uC2A4\uCF54\uC5B4\uB97C \uD68D\uB4DD \uD558\uC2ED\uC2DC\uC624."
+  - "\uD55C \uBC88\uC774\uB77C\uB3C4 \uC801\uC758 \uACF5\uACA9\uC758 \uB9DE\uC73C\uBA74 "
+  - "\uD50C\uB808\uC774\uC5B4\uC758 \uAE30\uCCB4\uAC00 \uD30C\uAD34\uB418\uB2C8 \uC8FC\uC758\uD558\uC2ED\uC2DC\uC624"
+  - "\uCD5C\uB300\uD55C \uB9CE\uC740 \uC801\uC744 \uCC98\uCE58\uD558\uC5EC \uB9CE\uC740
+    \uC2A4\uCF54\uC5B4\uB97C \uD68D\uB4DD\uD558\uC2ED\uC2DC\uC624."
   comamt2:
   - "\uACE7 \uC801\uC774 \uB098\uD0C0 \uB0A9\uB2C8\uB2E4."
   cool: 0.1

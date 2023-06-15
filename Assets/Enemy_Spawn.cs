@@ -121,7 +121,7 @@ public class Enemy_Spawn : MonoBehaviour
             yield return new WaitForSeconds(_crrentTime);
             Lv1(new Vector2(-4, 6));
             Lv1(new Vector2(4, 6));
-            if (_CurrentTime>=80)
+            if (_CurrentTime>=70)
             {
                 AddEliteEnemy();
             }
@@ -131,7 +131,7 @@ public class Enemy_Spawn : MonoBehaviour
             yield return new WaitForSeconds(_crrentTime);
             Lv1(new Vector2(-4, 6));
             Lv1(new Vector2(4, 6));
-            if (_CurrentTime >= 40)
+            if (_CurrentTime >= 110)
             {
                 AddEliteEnemy();
             }
@@ -139,7 +139,7 @@ public class Enemy_Spawn : MonoBehaviour
             Lv1(new Vector2(-2, 6));
             Lv1(new Vector2(2, 6));
             yield return new WaitForSeconds(_crrentTime);
-            if (_CurrentTime >= 130)
+            if (_CurrentTime >= 90)
             {
                 AddEliteEnemy();
             }
@@ -148,7 +148,7 @@ public class Enemy_Spawn : MonoBehaviour
             yield return new WaitForSeconds(_crrentTime);
             Lv1(new Vector2(-4, 6));
             Lv1(new Vector2(4, 6));
-            if (_CurrentTime >= 150)
+            if (_CurrentTime >= 80)
             {
                 AddEliteEnemy();
                 AddBoss();
@@ -157,7 +157,7 @@ public class Enemy_Spawn : MonoBehaviour
             Lv1(new Vector2(-2, 6));
             Lv1(new Vector2(2, 6));
             yield return new WaitForSeconds(_crrentTime);
-            if (_CurrentTime >= 80)
+            if (_CurrentTime >= 70)
             {
                 AddEliteEnemy();
                 yield return new WaitForSeconds(_crrentTime);
@@ -182,7 +182,7 @@ public class Enemy_Spawn : MonoBehaviour
             yield return new WaitForSeconds(_crrentTime);
             Lv1(new Vector2(-4, 6));
             Lv1(new Vector2(4, 6));
-            if (_CurrentTime >= 130)
+            if (_CurrentTime >= 1200)
             {
                 AddEliteEnemy();
             }
@@ -208,7 +208,7 @@ public class Enemy_Spawn : MonoBehaviour
             Lv1(new Vector2(-2, 6));
             Lv1(new Vector2(2, 6));
             yield return new WaitForSeconds(_crrentTime);
-            if (_CurrentTime >= 130)
+            if (_CurrentTime >= 100)
             {
                 AddEliteEnemy();
                 AddBoss();

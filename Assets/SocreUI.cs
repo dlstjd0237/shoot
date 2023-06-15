@@ -28,18 +28,19 @@ public class SocreUI : MonoBehaviour
     int c = 0;
     public void Gameover()
     {
-        if (c != 0)
-            PlayerPrefs.GetFloat("HighScore", _highScore);
         _currentScore = distanceText.score;
         _gameOverPanel.SetActive(true);
         Time.timeScale = 0;
-        if (distanceText.score > _highScore)
+        if (_currentScore > _highScore)
         {
-            PlayerPrefs.SetFloat("HighScore", _highScore);
             _highScore = _currentScore;
+            PlayerPrefs.SetFloat("HighScore", _highScore);
+            PlayerPrefs.Save();
+           
         }
         c++;
+        PlayerPrefs.GetFloat("HighScore", _highScore);
         _currntScoreText.text = "내 점수 : " + _currentScore;
-        _highScoreText.text = "점수를 기억하십시오 최고점수는\n 시간이없어 못했습니다.";
+        _highScoreText.text = "점수를 기억하십시오 "+_highScore;
     }
 }

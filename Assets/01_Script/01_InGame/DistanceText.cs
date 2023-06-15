@@ -16,6 +16,7 @@ public class DistanceText : MonoBehaviour
     {
         EndScore = () => { SetScore(); };
     }
+    
     public float score
     {
         get => distance;

@@ -10,6 +10,7 @@ public class Player_Attack : Singleton<GameManager>
     int _attackLvel_bar_max = 500;
     bool _tl = false;
     bool _t2 = false;
+    bool _t3 = false;
     [SerializeField]
     int _currentAttackLvel_bar = 0;
     //public float _attackLvelTime = 0;
@@ -72,7 +73,7 @@ public class Player_Attack : Singleton<GameManager>
         int q = 0;
         while (true)
         {
-            if (Input.GetKey(KeyCode.Space) || uimaneager.m_isButtonDowning&& _playerMove.die==false)
+            if (Input.GetKey(KeyCode.Space) || uimaneager.m_isButtonDowning && _playerMove.die == false)
             {
                 _ani.SetBool("isAttack", true);
                 audio.Play();
@@ -128,7 +129,6 @@ public class Player_Attack : Singleton<GameManager>
                 if (q > bulletBox.Bularr.Count - 1) q = 0;
                 break;
             case 4:
-                StartCoroutine(fountain());
                 bulletBox.Bularr[q].SetActive(true);
                 bulletBox.Bularr[q].transform.position = transform.position;
                 bulletBox.Bularr[q].GetComponentInChildren<BulletMove>().MoveTo(new Vector3(0, 1, 0));
@@ -209,7 +209,8 @@ public class Player_Attack : Singleton<GameManager>
                 bulletBox.Spwan(new Vector3(transform.position.x - 0.4f, transform.position.y), new Vector3(-0.1f, 1, 0));
                 bulletBox.Spwan(new Vector3(transform.position.x - 0.3f, transform.position.y), new Vector3(-0.1f, 1, 0));
                 bulletBox.Spwan(new Vector3(transform.position.x - 0.2f, transform.position.y), new Vector3(-0.1f, 1, 0));
-                StartCoroutine(fountain2());
+                if (_t2 == false)
+                    StartCoroutine(fountain2());
                 break;
             case 8:
                 bulletBox.Spwan(transform.position, new Vector3(0, 1, 0));
@@ -220,12 +221,30 @@ public class Player_Attack : Singleton<GameManager>
                 bulletBox.Spwan(new Vector3(transform.position.x + 0.2f, transform.position.y), new Vector3(0.05f, 1, 0));
                 bulletBox.Spwan(new Vector3(transform.position.x + 0.3f, transform.position.y), new Vector3(0.75f, 1, 0));
                 bulletBox.Spwan(new Vector3(transform.position.x + 0.4f, transform.position.y), new Vector3(0.1f, 1, 0));
-                if (_t2 == false)
+                if (_t3 == false)
                     StartCoroutine(fountain2());
                 bulletBox.Spwan(new Vector3(transform.position.x - 0.4f, transform.position.y), new Vector3(-0.1f, 1, 0));
                 bulletBox.Spwan(new Vector3(transform.position.x - 0.3f, transform.position.y), new Vector3(-0.75f, 1, 0));
                 bulletBox.Spwan(new Vector3(transform.position.x - 0.2f, transform.position.y), new Vector3(-0.05f, 1, 0));
                 break;
+        }
+    }
+    IEnumerator fountain3()
+    {
+        _t3 = true;
+        float weightAngle = 0;
+        while (true)
+        {
+
+            for (int i = 0; i < 20; i++)
+            {
+                float angle = weightAngle + 360 / 20 * i;
+                float x = Mathf.Cos(angle * Mathf.PI / 180.0f);
+                float y = Mathf.Sin(angle * Mathf.PI / 180.0f);
+                bulletBox2.AddBullet(transform.position, new Vector3(x, y));
+            }
+            //weightAngle += 1;
+            yield return new WaitForSeconds(3);
         }
     }
     IEnumerator fountain2()
