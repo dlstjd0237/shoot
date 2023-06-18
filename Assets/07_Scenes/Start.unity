@@ -277,7 +277,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &824465368
 MonoBehaviour:
@@ -698,6 +698,8 @@ MonoBehaviour:
   playerSpeed: 7
   minPos: {x: -8.5, y: -4.5}
   maxPos: {x: 8.5, y: 4.5}
+  ingame: {fileID: 0}
+  die: 0
 --- !u!50 &1323648668
 Rigidbody2D:
   serializedVersion: 4
