@@ -11,7 +11,7 @@ public class Enemy_Lv4_Bullet_Pool : MonoBehaviour
     int q =0;
     private void Awake()
     {
-        for (int i = 0; i < 500; i++)
+        for (int i = 0; i < 2000; i++)
         {
             GameObject qwer = Instantiate(_enemyBullet[Random.Range(0, _enemyBullet.Length)], transform);
             _enemyBulletList.Add(qwer);

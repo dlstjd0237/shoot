@@ -14,6 +14,8 @@ public class Player_Move : MonoBehaviour
     [SerializeField] Vector2 maxPos;
     [SerializeField] Image ingame;
     public bool die = false;
+    public bool _godMode = false;
+
 
     private void Awake()
     {
@@ -41,7 +43,7 @@ public class Player_Move : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("EnemyBullet") || collision.CompareTag("Enemy") && die == false)
+        if ((collision.CompareTag("EnemyBullet") && die == false && _godMode == false) || (collision.CompareTag("Enemy") && die == false&& _godMode == false))
         {
             die = true;
             StartCoroutine(a());

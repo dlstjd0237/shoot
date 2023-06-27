@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Option_Button : MonoBehaviour
 {
     [SerializeField] GameObject Option_Panel;
+    Player_Move _playerMove;
     private bool _optioncheck = false;
     private bool _soundCheck = false;
     [SerializeField] private Image _defaultImage;
@@ -12,6 +13,7 @@ public class Option_Button : MonoBehaviour
     [SerializeField] private Image _offSuond;
     private void Awake()
     {
+        _playerMove = FindAnyObjectByType<Player_Move>();
         //_defaultImage = GameObject.Find("Canvas/Option_Panel/Audio").GetComponent<Image>();
         //_onSuond = GameObject.Find("Canvas/Option_Panel/SoundOn").GetComponent<Image>();
         //_offSuond = GameObject.Find("Canvas/Option_Panel/SoundOff").GetComponent<Image>();
@@ -25,6 +27,15 @@ public class Option_Button : MonoBehaviour
  
 
 
+    }
+    public void GodMode()
+    {
+        if (_playerMove._godMode ==false)
+        _playerMove._godMode = true;
+        else
+        {
+            _playerMove._godMode = false;
+        }
     }
     public void OutSound()
     {
@@ -49,7 +60,10 @@ public class Option_Button : MonoBehaviour
             Time.timeScale = 1;
         }
     }
-
+    public void ReGame()
+    {
+        LoadingManager.LoadScene("Game");
+    }
     public void goMain()
     {
         Time.timeScale = 1;

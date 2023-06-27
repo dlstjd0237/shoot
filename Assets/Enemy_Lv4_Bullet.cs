@@ -8,6 +8,8 @@ public class Enemy_Lv4_Bullet : MonoBehaviour
     [SerializeField]
     private Enemy_Data _enemy_Data;
     Animator Ani;
+
+    bool isfirstCreateObject = true;
     private void Awake()
     {
         Ani = GetComponent<Animator>();
@@ -16,11 +18,22 @@ public class Enemy_Lv4_Bullet : MonoBehaviour
     {
         ToMove(_movedir);
         transform.position += _movedir * _enemy_Data.EnemyBulletSpeed * Time.deltaTime;
-        Die();
+    }
+
+    private void OnEnable()
+    {
+        if(isfirstCreateObject == true)
+        {
+            isfirstCreateObject = false;
+        }
+        else
+        {
+            StartCoroutine(Co());
+        }
     }
     private void OnDisable()
     {
-        _movedir = Vector3.zero;
+        _movedir = Vector3.zero;      
     }
     public void ToMove(Vector3 dir)
     {
@@ -37,11 +50,9 @@ public class Enemy_Lv4_Bullet : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    void Die()
+    IEnumerator Co()
     {
-        if(transform.position.y < -7)
-        {
-            gameObject.SetActive(false);
-        }
+        yield return new WaitForSeconds(3);
+        gameObject.SetActive(false);
     }
 }

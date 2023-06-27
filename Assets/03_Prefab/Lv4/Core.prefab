@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7103843488861010078}
   - component: {fileID: 5938991959724770789}
   - component: {fileID: 2937070111206935675}
+  - component: {fileID: 2037275357823141084}
+  - component: {fileID: 3852161258339828934}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -97,3 +99,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 006dfb818eb516b4bbf5507cd067534c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2037275357823141084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707430616883668201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81eb9b6d56b4a7342b5bab1228ee2558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyLv_data: {fileID: 11400000, guid: 3ecfc45eccb210942b86093641d7f7f3, type: 2}
+  _enemyType: 4
+  _percent: 100
+  _addScore: 1000000
+--- !u!70 &3852161258339828934
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707430616883668201}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.33333334, y: 0.33333334}
+  m_Direction: 0

@@ -222,7 +222,7 @@ public class Player_Attack : Singleton<GameManager>
                 bulletBox.Spwan(new Vector3(transform.position.x + 0.3f, transform.position.y), new Vector3(0.75f, 1, 0));
                 bulletBox.Spwan(new Vector3(transform.position.x + 0.4f, transform.position.y), new Vector3(0.1f, 1, 0));
                 if (_t3 == false)
-                    StartCoroutine(fountain2());
+                    StartCoroutine(fountain3());
                 bulletBox.Spwan(new Vector3(transform.position.x - 0.4f, transform.position.y), new Vector3(-0.1f, 1, 0));
                 bulletBox.Spwan(new Vector3(transform.position.x - 0.3f, transform.position.y), new Vector3(-0.75f, 1, 0));
                 bulletBox.Spwan(new Vector3(transform.position.x - 0.2f, transform.position.y), new Vector3(-0.05f, 1, 0));

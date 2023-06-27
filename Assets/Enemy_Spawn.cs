@@ -16,6 +16,7 @@ public class Enemy_Spawn : MonoBehaviour
     private Start_Auido _start_Audio;
     private float _CurrentTime;
     private int Count = 0;
+    private bool _bossSpawn = false;
     [SerializeField]
     private float _crrentTime = 1.6f;
     private void Awake()
@@ -44,11 +45,12 @@ public class Enemy_Spawn : MonoBehaviour
             asdf();
         if (_CurrentTime > 160&& _dangerScreenOn == false)
         {
+            _bossSpawn = true;
             _dangerScreenOn = true;
             StartCoroutine(Danger());
             _start_Audio.Stop();
             _bossSound.StartAudio();
-
+            BossEnd();
 
         }
     }
@@ -131,7 +133,7 @@ public class Enemy_Spawn : MonoBehaviour
             yield return new WaitForSeconds(_crrentTime);
             Lv1(new Vector2(-4, 6));
             Lv1(new Vector2(4, 6));
-            if (_CurrentTime >= 110)
+            if (_CurrentTime >= 50)
             {
                 AddEliteEnemy();
             }
@@ -182,7 +184,7 @@ public class Enemy_Spawn : MonoBehaviour
             yield return new WaitForSeconds(_crrentTime);
             Lv1(new Vector2(-4, 6));
             Lv1(new Vector2(4, 6));
-            if (_CurrentTime >= 1200)
+            if (_CurrentTime >= 30)
             {
                 AddEliteEnemy();
             }
@@ -216,6 +218,23 @@ public class Enemy_Spawn : MonoBehaviour
             yield return new WaitForSeconds(_crrentTime);
             if (_crrentTime > 0.4f)
                 _crrentTime -= 0.2f;
+            if (_bossSpawn == true) break;
+        }
+    }
+    IEnumerator BossEnd()
+    {
+        while (true)
+        {
+            AddEliteEnemy();
+            yield return new WaitForSeconds(2);
+            AddEliteEnemy();
+            yield return new WaitForSeconds(2);
+            AddEliteEnemy();
+            yield return new WaitForSeconds(2);
+            AddEliteEnemy();
+            yield return new WaitForSeconds(4);
+            AddBoss();
+            yield return new WaitForSeconds(2);
         }
     }
 }

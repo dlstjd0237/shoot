@@ -8,6 +8,7 @@ public class Enemy_Lv4_Attack : MonoBehaviour
     private void Awake()
     {
         _enemy_bullet = FindAnyObjectByType<Enemy_Lv4_Bullet_Pool>();
+
     }
     private void Start()
     {
@@ -15,12 +16,18 @@ public class Enemy_Lv4_Attack : MonoBehaviour
     }
     IEnumerator Co()
     {
-        a(transform.position, new Vector3(0, -1, 0));
-        yield return new WaitForSeconds(3);
+        for (int i = 0; i < 2; i++)
+        {
+
+            a(transform.position, new Vector3(0, -1, 0));
+            yield return new WaitForSeconds(1f);
+        }
         StartCoroutine(Co());
     }
-    void a (Vector3 dir1,Vector3 dir2)
+    void a(Vector3 dir1, Vector3 dir2)
     {
         _enemy_bullet.SpownBullet(dir1, dir2);
     }
+
+   
 }
