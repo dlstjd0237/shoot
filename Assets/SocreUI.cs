@@ -17,13 +17,13 @@ public class SocreUI : MonoBehaviour
     private DistanceText distanceText;
     public static Action Game_over_Panel;
     private float _currentScore = 0;
-    private float _highScore = 0;
+    private float _highScore;
 
     private void Awake()
     {
         Game_over_Panel = () => { Gameover(); };
         distanceText = FindAnyObjectByType<DistanceText>();
-
+        _highScore = PlayerPrefs.GetFloat("HighScore", _highScore);
     }
     int c = 0;
     public void Gameover()
@@ -35,12 +35,11 @@ public class SocreUI : MonoBehaviour
         {
             _highScore = _currentScore;
             PlayerPrefs.SetFloat("HighScore", _highScore);
-            PlayerPrefs.Save();
-           
+            _highScore = PlayerPrefs.GetFloat("HighScore", _highScore);
+
         }
         c++;
-        PlayerPrefs.GetFloat("HighScore", _highScore);
         _currntScoreText.text = "내 점수 : " + _currentScore;
-        _highScoreText.text = "점수를 기억하십시오 "+_highScore;
+        _highScoreText.text = "점수를 기억하십시오 " + _highScore;
     }
 }
