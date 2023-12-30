@@ -14,6 +14,9 @@ public class Player_Joystick_Move : MonoBehaviour
     private void Update()
     {
         if (_playerMove.die == false)
+        {
+            Debug.Log(value);
             transform.Translate(value.joyTouch / Player_Speed);
+        }
     }
 }
