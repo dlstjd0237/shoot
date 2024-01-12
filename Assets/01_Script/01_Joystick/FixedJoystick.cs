@@ -5,7 +5,7 @@ public class FixedJoystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 {
     private RectTransform rect;
     private Vector2 touch = Vector2.zero;
-    [Header("조이스틱이 있는 패널")]
+    [Header("조이스틱이 있는 동그라미")]
     [SerializeField] private RectTransform handle;
     private float widthHalf;
     [SerializeField] JoystickValue value;
@@ -25,12 +25,12 @@ public class FixedJoystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         handle.anchoredPosition = touch * widthHalf;
     }
 
-    private void OnPointerDown(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
         OnDrag(eventData);
     }
 
-    private void OnPointerUp(PointerEventData eventData)
+    public void OnPointerUp(PointerEventData eventData)
     {
         value.joyTouch = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;
