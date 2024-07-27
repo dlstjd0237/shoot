@@ -12,19 +12,21 @@ public class TextManeager : MonoBehaviour
     [SerializeField] float nextTextCool;
     [SerializeField] GameObject panel;
     [SerializeField] AudioSource _gameAudio;
+    [SerializeField] private GameObject obj;
     DistanceText _distanceText;
     new AudioSource audio;
     GameObject dkdlt;
     Enemy_Spawn _enemy_Spawn;
-   
 
 
-    int count = 0;
+
+    int count = 0;//dasdsdasd
     private void Awake()
     {
         _distanceText = GetComponent<DistanceText>();
         _enemy_Spawn = FindAnyObjectByType<Enemy_Spawn>();
         audio = GetComponent<AudioSource>();
+        obj.SetActive(true);
     }
     void Start()
     {
@@ -46,7 +48,7 @@ public class TextManeager : MonoBehaviour
         audio.Play();
         for (int i = 0; i < b.Length; i++)
         {
-            
+
             text.text += b[i];
             yield return new WaitForSeconds(c);
         }

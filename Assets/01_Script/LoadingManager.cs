@@ -62,7 +62,7 @@ public class LoadingManager : MonoBehaviour
         while (!op.isDone)
         {
             yield return null;
-            timer += Time.deltaTime * 0.15f;
+            timer += Time.deltaTime * 0.30f;
 
             progressBar.fillAmount = Mathf.Lerp(0, 1, timer);
             if (progressBar.fillAmount >= 1f)

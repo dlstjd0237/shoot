@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Player_Move : MonoBehaviour
 {
-    
+
     Rigidbody2D rig2D;
     Animator Ani;
-    private CameraManeager _camManeager; 
-    [SerializeField] float playerSpeed = 7.0f;
+    private CameraManeager _camManeager;
+    [SerializeField] float playerMoveSpeed = 10.0f;
     [SerializeField] Vector2 minPos;
     [SerializeField] Vector2 maxPos;
     [SerializeField] Image ingame;
@@ -23,30 +23,29 @@ public class Player_Move : MonoBehaviour
         Ani = GetComponent<Animator>();
         rig2D = GetComponent<Rigidbody2D>();
 
-    }
 
+    }
     private void FixedUpdate()
     {
-
         Move();
+
+        //if (Input.GetKeyDown(KeyCode.O))
     }
 
     private void Move()
     {
-
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
-        if (die == false)
-            rig2D.velocity = new Vector2(x, y).normalized * playerSpeed;
 
+        rig2D.velocity = new Vector2(x, y).normalized * playerMoveSpeed;
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, minPos.x, maxPos.x), Mathf.Clamp(transform.position.y, minPos.y, maxPos.y), 0);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.CompareTag("EnemyBullet") && die == false && _godMode == false) || (collision.CompareTag("Enemy") && die == false&& _godMode == false))
+        if ((collision.CompareTag("EnemyBullet") && die == false && _godMode == false) || (collision.CompareTag("Enemy") && die == false && _godMode == false))
         {
             die = true;
-            StartCoroutine(a());
+            StartCoroutine(DieCameraSet());
         }
     }
     public void Die()
@@ -57,7 +56,7 @@ public class Player_Move : MonoBehaviour
         gameObject.SetActive(false);
 
     }
-    IEnumerator a()
+    IEnumerator DieCameraSet()
     {
         _camManeager.DieCam(4, 3);
         yield return new WaitForSeconds(0.8f);
@@ -65,5 +64,5 @@ public class Player_Move : MonoBehaviour
         _camManeager.DieCam(8, 2);
         Ani.SetTrigger("isDie");
     }
-   
+
 }

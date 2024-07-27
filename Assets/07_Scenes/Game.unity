@@ -4104,7 +4104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1049676405
 Rigidbody2D:
   serializedVersion: 4
@@ -4206,7 +4206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22061bcc333679e49bd82c60fdda16a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 10
+  playerMoveSpeed: 10
   minPos: {x: -11, y: -6}
   maxPos: {x: 11, y: 6}
   ingame: {fileID: 123865941}
@@ -5042,6 +5042,7 @@ MonoBehaviour:
   nextTextCool: 1
   panel: {fileID: 822624027}
   _gameAudio: {fileID: 1312592419}
+  obj: {fileID: 1049676403}
 --- !u!4 &1207559097
 Transform:
   m_ObjectHideFlags: 0
@@ -6101,6 +6102,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467668346}
   m_CullTransparentMesh: 1
+--- !u!1 &1504250231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1504250233}
+  - component: {fileID: 1504250232}
+  m_Layer: 0
+  m_Name: BulletBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1504250232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504250231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85de86970fe974349a1dda15959ce506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bul:
+  - {fileID: 271633939616289544, guid: de7a2fe642e6ebc43b4e74c1e17d132b, type: 3}
+  Bularr: []
+--- !u!4 &1504250233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504250231}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1551765954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 872079693688781311, guid: 560d3a364ca1d2947bd39c20503cf1c3, type: 3}
@@ -7378,7 +7426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1912095196
 MonoBehaviour:
   m_ObjectHideFlags: 0

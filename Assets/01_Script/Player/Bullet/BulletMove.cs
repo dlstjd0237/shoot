@@ -16,6 +16,7 @@ public class BulletMove : MonoBehaviour
     }
     private void OnDisable()
     {
+
         moveDir = Vector3.zero;
     }
     public void MoveTo(Vector3 dir)
@@ -32,4 +33,5 @@ public class BulletMove : MonoBehaviour
         }
       
     }
+
 }
