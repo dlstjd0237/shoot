@@ -695,11 +695,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22061bcc333679e49bd82c60fdda16a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 7
+  playerMoveSpeed: 10
   minPos: {x: -8.5, y: -4.5}
   maxPos: {x: 8.5, y: 4.5}
-  ingame: {fileID: 0}
   die: 0
+  _godMode: 0
 --- !u!50 &1323648668
 Rigidbody2D:
   serializedVersion: 4

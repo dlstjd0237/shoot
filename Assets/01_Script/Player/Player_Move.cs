@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 public class Player_Move : MonoBehaviour
 {
 
@@ -12,7 +9,6 @@ public class Player_Move : MonoBehaviour
     [SerializeField] float playerMoveSpeed = 10.0f;
     [SerializeField] Vector2 minPos;
     [SerializeField] Vector2 maxPos;
-    [SerializeField] Image ingame;
     public bool die = false;
     public bool _godMode = false;
 
@@ -28,8 +24,6 @@ public class Player_Move : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-
-        //if (Input.GetKeyDown(KeyCode.O))
     }
 
     private void Move()
