@@ -35,10 +35,10 @@ public class LoadingManager : MonoBehaviour
         //_out.color = myCOlor2;
         audio = GetComponent<AudioSource>();
         timer = 0;
-        qwer();
-        asdf();
-        StartCoroutine(zxcv());
-        StartCoroutine(Co());
+        OutColorChange();
+        InGameColorChange();
+        StartCoroutine(VolumeChangeCoroutine());
+        StartCoroutine(OutColorChangeCoroutine());
 
 
     }
@@ -86,7 +86,7 @@ public class LoadingManager : MonoBehaviour
             }
         }
     }
-    IEnumerator Co()
+    IEnumerator OutColorChangeCoroutine()
     {
         while (true)
         {
@@ -98,19 +98,19 @@ public class LoadingManager : MonoBehaviour
 
         }
     }
-    void qwer()
+    void OutColorChange()
     {
         Color myCOlor = _out.color;
         myCOlor.a += 1f;
         _out.color = myCOlor;
     }
-    void asdf()
+    void InGameColorChange()
     {
         Color myCOlor = _inGame.color;
         myCOlor.a -= 1f;
         _inGame.color = myCOlor;
     }
-    IEnumerator zxcv()
+    IEnumerator VolumeChangeCoroutine()
     {
         while (true)
         {
