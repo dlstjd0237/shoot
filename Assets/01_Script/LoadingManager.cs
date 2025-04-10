@@ -10,15 +10,14 @@ public class LoadingManager : MonoBehaviour
 {
     static string nextScene;
 
-    [SerializeField]
-    Image progressBar;
+    [SerializeField] Image _progressBar;
     [SerializeField] TMP_Text _text;
     [SerializeField] TMP_Text _tip;
     [SerializeField] string _tip_Text;
     [SerializeField] Image _out;
     [SerializeField] Image _inGame;
-    AudioSource audio;
-    float timer;
+    AudioSource _audio;
+    float _timer;
     public static void LoadScene(string sceneName)
     {
         nextScene = sceneName;
@@ -27,14 +26,8 @@ public class LoadingManager : MonoBehaviour
     }
     private void Awake()
     {
-        //Color myCOlor = _out.color;
-        //myCOlor.a = 1;
-        //_out.color = myCOlor;
-        //Color myCOlor2 = _inGame.color;
-        //myCOlor2.a = 0f;
-        //_out.color = myCOlor2;
-        audio = GetComponent<AudioSource>();
-        timer = 0;
+        _audio = GetComponent<AudioSource>();
+        _timer = 0;
         OutColorChange();
         InGameColorChange();
         StartCoroutine(VolumeChangeCoroutine());
@@ -58,19 +51,19 @@ public class LoadingManager : MonoBehaviour
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
         op.allowSceneActivation = false;
         //op.progress = 0f;
-        progressBar.fillAmount = 0;
+        _progressBar.fillAmount = 0;
         while (!op.isDone)
         {
             yield return null;
-            timer += Time.deltaTime * 0.30f;
+            _timer += Time.deltaTime * 0.30f;
 
-            progressBar.fillAmount = Mathf.Lerp(0, 1, timer);
+            _progressBar.fillAmount = Mathf.Lerp(0, 1, timer);
             if (progressBar.fillAmount >= 1f)
             {
                 while (true)
                 {
 
-                    audio.volume -= 0.002f;
+                    _audio.volume -= 0.002f;
                     Color myCOlor = _inGame.color;
                     myCOlor.a += 0.02f;
                     _inGame.color = myCOlor;
@@ -115,9 +108,9 @@ public class LoadingManager : MonoBehaviour
         while (true)
         {
 
-            audio.volume += 0.002f;
+            _audio.volume += 0.002f;
             yield return new WaitForSeconds(0.01f);
-            if (audio.volume >= 0.3f) break;
+            if (_audio.volume >= 0.3f) break;
         }
     }
 }
