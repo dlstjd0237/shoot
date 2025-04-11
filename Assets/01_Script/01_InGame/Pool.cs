@@ -21,10 +21,10 @@ public class Pool : MonoBehaviour
 
     public void Paier()
     {
-        StartCoroutine(Co());
+        StartCoroutine(StartPoolling());
     }
 
-    public IEnumerator Co()
+    public IEnumerator StartPoolling()
     {
         int q = 0;
         Poolarr[q].SetActive(true);
